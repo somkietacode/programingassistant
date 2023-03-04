@@ -4,8 +4,9 @@
 This is Eliot your comandline based programing assistant. Ask him anything about programing, he would be glad to help you.
 A project inpired by Chat GPT
 
-email : s.r.a.ouedraogo@gmail.com
-Tel : 226 72 58 78 71 / 57 74 21 32
+### email : s.r.a.ouedraogo@gmail.com
+
+### Tel : 226 72 58 78 71 / 57 74 21 32
 
 # How it work ?
 
