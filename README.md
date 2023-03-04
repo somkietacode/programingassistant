@@ -54,3 +54,73 @@ It isn't SQL that's injected, it's content that's interpolated ("injected") into
 SQL injection is a fault in the application code, not typically in the database or in the database access library or framework.
 Most cases of SQL injection can be avoided by using query parameters. See How can I prevent SQL injection in PHP? for examples.
 ```
+
+```console
+User > How to translate using python ?
+Eliot >
+Eliot >
+With the googletrans (pypi.org/project/googletrans) module that is possible. The following code takes an input folder with text files of the format you provided (multiple occurrences are allowed), translates the relevant parts and creates a new translated text file in the output folder for every input file. Please be aware that google translate is not known for its accuracy. 
+googletrans translated your examples:"Finish Black Peter case." to "Valmis Musta Pekka tapaus.""Aye Aye, Captain!" to "Ai-ai, kapteeni!"
+from googletrans import Translator
+import os
+import re
+
+INPUT_FOLDER_PATH = 'path/to/inputFolder'
+OUTPUT_FOLDER_PATH = 'path/to/outputFolder'
+
+# a translator object from the googletrans api
+tl = Translator()
+
+# go through all the files in the input folder
+for filename in os.listdir(INPUT_FOLDER_PATH):
+
+    # open the file to translate and split the data into lines
+    in_file = open(f'{INPUT_FOLDER_PATH}/{filename}', 'r')
+    data = in_file.read()
+    data = data.split('\n')
+
+    # the modified data string we will now fill
+    transl_data = ""
+
+    # translate the relevant parts of each line
+    for line in data:
+
+        # find matches: is this a relevant line?
+        locname = re.findall('(?<=LocName=").*(?=")', line)
+        locdesc = re.findall('(?<=LocDescription=").*(?=")', line)
+
+        # if there is a locName or locDescription match, translate the important part and replace it
+        if len(locname) == 1:
+            locname_trans = tl.translate(locname[0], dest='fi').text
+            line = re.sub('(?<=LocName=").*(?=")', locname_trans, line)
+        elif len(locdesc) == 1:
+            locdesc_trans = tl.translate(locdesc[0], dest='fi').text
+            line = re.sub('(?<=LocDescription=").*(?=")', locdesc_trans, line)
+
+        # add the translated line to the translated string
+        transl_data += line + '\n'
+
+    # create a new file for the translations
+    out_file = open(f'{OUTPUT_FOLDER_PATH}/{filename}-translated', 'w')
+
+    # write the translated data to the output file
+    out_file.write(transl_data)
+
+    # clean up
+    in_file.close()
+    out_file.close()
+
+```
+
+# Screen shoot
+![image](https://user-images.githubusercontent.com/108131461/222900549-077139c6-fd88-407e-9ada-0da0a0ef314c.png)
+
+# Try it your self it is amazing 
+## Don't forget to leave stars on the repo that help referencing...
+
+## Support
+
+You can ask questions and join the development discussion:
+
+- [Facebook page](https://www.facebook.com/globalanalysistech) .
+
