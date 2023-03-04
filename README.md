@@ -21,4 +21,11 @@ Requirement already satisfied: soupsieve>1.2 in c:\users\sraou\appdata\local\pac
 
 ```
 
+Then simply go to the path where you clone the repostorie and run :
 
+```console
+foo@bar:~$ python ProgramingAssistant.py
+Hi, my name is  Eliot . Ask me something about how to program something i would be glad to help you...
+Eliot > So, how could i help you today ?
+User >
+```
