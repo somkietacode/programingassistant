@@ -29,3 +29,28 @@ Hi, my name is  Eliot . Ask me something about how to program something i would 
 Eliot > So, how could i help you today ?
 User >
 ```
+
+Simply ask your question and press enter :
+```console
+User > What is sql injection ?
+Eliot >
+Can someone explain SQL injecton?
+SQL injection happens when you interpolate some content into a SQL query string, and the result modifies the syntax of your query in ways you didn't intend.
+It doesn't have to be malicious, it can be an accident.  But accidental SQL injection is more likely to result in an error than in a vulnerability.
+The harmful content doesn't have to come from a user, it could be content that your application gets from any source, or even generates itself in code.
+How does it cause vulnerabilities?
+It can lead to vulnerabilities because attackers can send values to an application that they know will be interpolated into a SQL string.  By being very clever, they can manipulate the result of queries, reading data or even changing data that they shouldn't be allowed to do.
+Example in PHP:
+$password = $_POST['password'];
+$id = $_POST['id'];
+$sql = "UPDATE Accounts SET PASSWORD = '$password' WHERE account_id = $id";
+
+Now suppose the attacker sets the POST request parameters to "password=xyzzy" and "id=account_id" resulting in the following SQL:
+UPDATE Accounts SET PASSWORD = 'xyzzy' WHERE account_id = account_id
+
+Although I expected $id to be an integer, the attacker chose a string that is the name of the column.  Of course now the condition is true on every row, so the attacker has just set the password for every account.  Now the attacker can log in to anyone's account -- including privileged users.
+Where exactly is the point where SQL is injected?
+It isn't SQL that's injected, it's content that's interpolated ("injected") into a SQL string, resulting in a different kind of query than I intended.  I trusted the dynamic content without verifying it, and executed the resulting SQL query blindly.  That's where the trouble starts.
+SQL injection is a fault in the application code, not typically in the database or in the database access library or framework.
+Most cases of SQL injection can be avoided by using query parameters. See How can I prevent SQL injection in PHP? for examples.
+```
