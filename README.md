@@ -1,5 +1,11 @@
 # programingassistant
+![eliot](https://user-images.githubusercontent.com/108131461/222901063-7f4c8d92-ed82-4147-a1ed-f558f04d2fcd.png)
+
 This is Eliot your comandline based programing assistant. Ask him anything about programing, he would be glad to help you.
+A project inpired by Chat GPT
+
+email : s.r.a.ouedraogo@gmail.com
+Tel : 226 72 58 78 71 / 57 74 21 32
 
 # How it work ?
 
