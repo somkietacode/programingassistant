@@ -58,7 +58,6 @@ Most cases of SQL injection can be avoided by using query parameters. See How ca
 ```console
 User > How to translate using python ?
 Eliot >
-Eliot >
 With the googletrans (pypi.org/project/googletrans) module that is possible. The following code takes an input folder with text files of the format you provided (multiple occurrences are allowed), translates the relevant parts and creates a new translated text file in the output folder for every input file. Please be aware that google translate is not known for its accuracy. 
 googletrans translated your examples:"Finish Black Peter case." to "Valmis Musta Pekka tapaus.""Aye Aye, Captain!" to "Ai-ai, kapteeni!"
 from googletrans import Translator
